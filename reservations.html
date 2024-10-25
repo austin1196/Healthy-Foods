@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="C:\web\web project\style.css">
+    <title>Reservation</title>
+  </head>
+  <body>
+    <nav>
+      <ul class="nav-flex-row">
+        <li class="nav-item"><a href="C:\web\web project\index.html">Home</a></li>
+        <li class="nav-item"><a href="C:\web\web project\menu.html">Menu</a></li>
+        <li class="nav-item"><a href="C:\web\web project\info.html">Info</a></li>
+      </ul>
+    </nav>
+
+    <div class="reservation-page">
+      <div class="flex-column-form" id="reservation">
+        <h3>Make a booking</h3>
+        <form class="media-centered" method="POST" action="/api/reservation">
+          <div class="form-group">
+            <p>Please leave your number, and we will call to make a reservation.</p>
+            <input type="text" class="form-control" id="exampleInputName1" placeholder="Enter your name" name="name" required>
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="exampleInputphoneNumber1" placeholder="Enter your phone number" name="phoneNumber" required>
+          </div>
+
+          <!-- Dropdown menu for Starter -->
+          <div class="form-group">
+            <label for="starter">Select your starter:</label>
+            <select class="form-control" id="starter" name="starter" required>
+              <!-- Items will be populated from menu.html via JavaScript -->
+            </select>
+          </div>
+
+          <!-- Dropdown menu for Main Course -->
+          <div class="form-group">
+            <label for="mainCourse">Select your main course:</label>
+            <select class="form-control" id="mainCourse" name="mainCourse" required>
+              <!-- Items will be populated from menu.html via JavaScript -->
+            </select>
+          </div>
+
+          <!-- Dropdown menu for Dessert -->
+          <div class="form-group">
+            <label for="dessert">Select your dessert:</label>
+            <select class="form-control" id="dessert" name="dessert" required>
+              <!-- Items will be populated from menu.html via JavaScript -->
+            </select>
+          </div>
+
+          <!-- Payment Mode -->
+          <div class="form-group">
+            <label for="paymentMode">Select payment mode:</label>
+            <select class="form-control" id="paymentMode" name="paymentMode" required>
+              <option value="Credit Card">Credit Card</option>
+              <option value="PayPal">PayPal</option>
+              <option value="Cash">Cash</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Fetch menu items from menu.html
+      window.onload = function() {
+        const starterDropdown = document.getElementById('starter');
+        const mainCourseDropdown = document.getElementById('mainCourse');
+        const dessertDropdown = document.getElementById('dessert');
+
+        fetch('menu.html').then(response => response.text()).then(data => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(data, 'text/html');
+
+          const starters = doc.querySelectorAll('#starters-menu li');
+          starters.forEach(item => {
+            let option = document.createElement('option');
+            option.value = item.getAttribute('data-dish');
+            option.text = item.getAttribute('data-dish');
+            starterDropdown.appendChild(option);
+          });
+
+          const mainCourses = doc.querySelectorAll('#main-course-menu li');
+          mainCourses.forEach(item => {
+            let option = document.createElement('option');
+            option.value = item.getAttribute('data-dish');
+            option.text = item.getAttribute('data-dish');
+            mainCourseDropdown.appendChild(option);
+          });
+
+          const desserts = doc.querySelectorAll('#desserts-menu li');
+          desserts.forEach(item => {
+            let option = document.createElement('option');
+            option.value = item.getAttribute('data-dish');
+            option.text = item.getAttribute('data-dish');
+            dessertDropdown.appendChild(option);
+          });
+        });
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - View Reservations</title>
+    <link rel="stylesheet" href="C:\web\web project\admin.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <h1>Reservation List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Menu Selection</th>
+                <th>Payment Mode</th>
+                <th>Reservation Date</th>
+            </tr>
+        </thead>
+        <tbody id="reservation-table-body">
+            <!-- Reservation data will be populated here by JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        // Fetch reservations from the server and display them in the table
+        fetch('/api/reservations')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('reservation-table-body');
+
+                data.forEach(reservation => {
+                    const row = document.createElement('tr');
+
+                    const nameCell = document.createElement('td');
+                    nameCell.textContent = reservation.name;
+                    row.appendChild(nameCell);
+
+                    const phoneCell = document.createElement('td');
+                    phoneCell.textContent = reservation.phoneNumber;
+                    row.appendChild(phoneCell);
+
+                    const menuCell = document.createElement('td');
+                    menuCell.textContent = reservation.menuSelection;
+                    row.appendChild(menuCell);
+
+                    const paymentCell = document.createElement('td');
+                    paymentCell.textContent = reservation.paymentMode;
+                    row.appendChild(paymentCell);
+
+                    const dateCell = document.createElement('td');
+                    const date = new Date(reservation.reservationDate);
+                    dateCell.textContent = date.toLocaleString();
+                    row.appendChild(dateCell);
+
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching reservations:', error);
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text:100,300,400,500,600,700,800,900&display=swap');
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Big Shoulders Text', cursive;
+    line-height: 1.6;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #333; /* Dark background for navigation */
+}
+
+.nav-flex-row {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.nav-flex-row li {
+    list-style-type: none;
+    margin: 0 20px;
+}
+
+.nav-flex-row li a {
+    color: #ffffff;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-flex-row li a:hover {
+    color: #ffd700; /* Change color on hover */
+}
+
+/* Intro Section Styles */
+.section-intro {
+    height: 820px; /* Full height */
+    background-image: url('city.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section-intro h1 {
+    color: #ffffff;
+    font-size: 4em;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+}
+
+/* About Section Styles */
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(243, 243, 243, 0.9);
+    padding: 50px 30px;
+    text-align: center; /* Center text */
+}
+
+.about-section article {
+    max-width: 800px; /* Limit width for better readability */
+}
+
+.about-section p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+/* Carousel Styles */
+.carousel-inner {
+    height: 700px; /* Height of carousel */
+}
+
+.carousel-item img {
+    height: 100%; /* Make images fill carousel height */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+/* Responsive Styles */
+@media (min-width: 577px) and (max-width: 800px) {
+    .section-intro {
+        height: 500px;
+    }
+
+    .section-intro h1 {
+        font-size: 3em; /* Responsive font size */
+    }
+
+    .about-section p {
+        font-size: 1em; /* Responsive font size */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .section-intro {
+        height: 300px;
+    }
+
+    .section-intro h1 {
+        font-size: 2em; /* Smaller font size for mobile */
+    }
+
+    .about-section {
+        padding: 30px 15px;
+    }
+
+    .about-section p {
+        font-size: 0.9em; /* Smaller font size for mobile */
+    }
+}

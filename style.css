@@ -1,0 +1,214 @@
+/* General styles for the entire site */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffc107;
+}
+
+/* General Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+/* Menu Page Styling */
+.menu-page {
+    padding: 40px 20px;
+    background: url('menu.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: rgb(0, 0, 0);
+}
+
+.menu-page h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.menu-page h3 {
+    margin-bottom: 15px;
+}
+
+.menu-page ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-page ul li {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu-page ul li img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.menu-page ul li:hover {
+    transform: scale(1.05);
+}
+
+/* Reservation Page Styling */
+.reservation-page {
+    background: url('reserv.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 400px 0px;
+    color: white;
+    text-align: center;
+}
+
+.reservation-page h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #ffc107;
+}
+
+/* Info Page Styling */
+.info-section {
+    background: url('info.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 250px 20px;
+    text-align: center;
+}
+
+.info-section h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.info-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Buttons */
+button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #ffc107;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .flex-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu-page ul li {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-page ul li img {
+        margin-bottom: 10px;
+    }
+
+    .form-container {
+        width: 100%;
+    }
+}
